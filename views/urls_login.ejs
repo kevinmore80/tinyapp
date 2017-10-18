@@ -1,19 +1,18 @@
-<h1>Welcome to TinyApp </h1>
 <h2>Please enter your login information</h2>
 
-<% if(!user_id) { %>
+ <% if (flag == 0) {%>
     <form action="/login" method="POST" style="margin:150px;">
       <label for="email">email:</label>
-      <input name="email" type="email">
+      <input id ="email" name="email" type="email">
       <label for="password">Password:</label>
-      <input name="password" type="password">
+      <input id = "password" name="password" type="password">
       <input type="submit" value="Submit">
     </form>
-  <% } else{ %>
-      <div>
-        The current user is: <span><%= email %></span>
-      </div>
-      <form action="/logout" method="POST" style="margin:150px;">
-      <input type="submit" value="Logout">
+    <form method="get" action="/register">
+        <button type="submit">Not a user? Register!</button>
       </form>
+  <% } else{ %>
+        <h1> Welcome to Tiny App </h1>
+        <br><br><br><br><br>
+        <h5> Watcha doin? You're already on our database!</h5>
     <% } %>
