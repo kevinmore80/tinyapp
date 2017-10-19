@@ -4,10 +4,17 @@ TinyApp is a full stack web application built with Node and Express that allows 
 
 ## Final Product
 
-!["Screenshot of URL's page"](https://github.com/kevinmore80/w2d2/tree/master/tinyapp/docs/urls-page.png)
-!["Screenshot of URL's page (with user logged in)"](https://github.com/kevinmore80/w2d2/tree/master/tinyapp/docs/urls-page-loggedin.png)
-!["Screenshot of URL's edit page"](https://github.com/kevinmore80/w2d2/tree/master/tinyapp/docs/urls-edit-page.png)
-!["Screenshot of Logged Out page)""](https://github.com/kevinmore80/w2d2/tree/master/tinyapp/docs/logged-out.png)
+### Main page
+![Main Page](https://github.com/kevinmore80/tree/master/tinyapp/docs/main_screen.png)
+
+### Registration page
+![Registration Page](https://github.com/kevinmore80/tree/master/tinyapp/docs/registration.png)
+
+### Add URL page
+![Add URL Page](https://github.com/kevinmore80/tree/master/tinyapp/docs/short_url.png)
+
+### URLS List page
+![URLs List Page](https://github.com/kevinmore80/tree/master/tinyapp/docs/urls_list.png)
 
 ## Dependencies
 
@@ -17,6 +24,10 @@ TinyApp is a full stack web application built with Node and Express that allows 
 - bcrypt
 - body-parser
 - cookie-session
+- cookie-parser
+- express-session
+- method-override
+- prettify
 
 ## Getting Started
 

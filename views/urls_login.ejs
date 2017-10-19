@@ -1,18 +1,28 @@
-<h2>Please enter your login information</h2>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include partials/_style %>
+  <title>TinyApp</title>
+</head>
+<body>
+<% include partials/_header %>
  <% if (flag == 0) {%>
-    <form action="/login" method="POST" style="margin:150px;">
-      <label for="email">email:</label>
-      <input id ="email" name="email" type="email">
-      <label for="password">Password:</label>
-      <input id = "password" name="password" type="password">
+    <form action="/login" method="POST">
+      <div>
+        <label for="email">email:</label>
+        <input id ="email" name="email" type="email">
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input id = "password" name="password" type="password">
+      </div>
       <input type="submit" value="Submit">
     </form>
     <form method="get" action="/register">
         <button type="submit">Not a user? Register!</button>
       </form>
   <% } else{ %>
-        <h1> Welcome to Tiny App </h1>
-        <br><br><br><br><br>
-        <h5> Watcha doin? You're already on our database!</h5>
+        <h3> You are definitely not supposed to be here</h3>
     <% } %>
+</body>
+</html>

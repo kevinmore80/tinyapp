@@ -1,15 +1,11 @@
-
+<h1> Tiny App </h1>
 <% if(flag !== 0 && user) { %>
-    <h5>The current user is <%= user.user_id %></h5>
-     <h4>Want to Logout?</h4>
-     <form method="post" action="/logout">
-       <button type="submit">LOGOUT</button>
-     </form>
-   <% } else { %>
-         <form method="get" action="/login">
-           <button type="submit"> CLICK TO LOGIN </button>
-         </form>
-         <form method="get" action="/register">
-           <button type="submit"> CLICK TO REGISTER </button>
-         </form>
-   <% } %>
+ <h4>The current user is: <u><%= user.email %></u></h5>
+  <form method="post" action="/logout">
+    <button type="submit">LOGOUT</button>
+  </form>
+<% } else { %>
+      <form method="get" action="/login">
+      <button type="submit"> Already a user? Click to login </button>
+      </form>
+<% } %>

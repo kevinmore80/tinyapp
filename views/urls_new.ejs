@@ -1,12 +1,16 @@
 <html lang="en">
-  <head></head>
-  <body style="font-size:20px; padding:50px;">
+  <head>
+    <% include partials/_style %>
+    <title>TinyApp</title>
+  </head>
+  <body>
     <% include partials/_header %>
-    <h5>This is running fine</h5>
 
-    <form action="/urls" method="POST" style="margin:150px;">
-      <label for="longURL">Enter a URL:</label>
-      <input id="longURL" type="text" name="longURL" placeholder="http://" style="width: 300px">
+    <form action="/urls" method="POST">
+      <div>
+        <label for="longURL">Enter a URL:</label>
+        <input id="longURL" type="text" name="longURL" placeholder="http://">
+      </div>
       <input type="submit" value="Submit">
     </form>
 

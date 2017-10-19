@@ -1,15 +1,17 @@
 var PORT = process.env.PORT || 8080; // default port 8080
 
 var express = require("express");
-const bcrypt = require('bcrypt');
 const methodOverride = require('method-override');
+const bcrypt = require('bcrypt');
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
 var app = express();
 app.set ('view engine','ejs');
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride('_method'));
 app.use(cookieParser());
+
 
 var cookieSession = require('cookie-session')
 app.use(cookieSession({
@@ -130,7 +132,14 @@ const users = {
 //--------------------------------------------------
 
 app.get("/", (req, res) => {
-  res.end("Hello!");
+
+  let user = req.session.user_id;
+  if(!user) {
+    res.redirect("/login");
+  } else {
+    res.redirect("/urls");
+  }
+
 });
 
 //Displaying the database when .json is asked for
@@ -331,7 +340,7 @@ app.post("/logout", function (req, res) {
 
 //Setting the user_id and longURL property for a given shortURL in the urlDatabase
 //Need to adjust for userauthorisation
-app.post("/urls/:id", function(req, res) {
+app.put("/urls/:id", function(req, res) {
 
   let user = req.session.user_id;
   if (!doesUserExist(user)) {
@@ -350,26 +359,26 @@ app.post("/urls/:id", function(req, res) {
 
 
 //POST Request to delete a URL
-app.post("/urls/:id", function (req, res) {
+app.delete("/urls/:id", function (req, res) {
 
-  let user = req.session.user_Id;
-  console.log(req.params.id, " has been deleted!!!");
+  let user = req.session.user_id;
 
-  if(user === undefined){
+  if(!user){
 
     res.redirect("/login"); //Force user to login if they haven't already
 
   } else if(shortURLAuth(user.user_id, req.params.id)){
 
     delete urlDatabase[req.params.id] //Only delete if user has authority to shortURL
+    res.redirect("/urls");
 
   } else {
     res.statusCode=401;
     res.send("Not authorized to this shortURL"); //If user is logged in but NOT authorized
   }
 
-  delete urlDatabase[req.params.id];
-  res.redirect("/urls");
+  // delete urlDatabase[req.params.id];
+  // res.redirect("/urls");
 
 });
 

@@ -1,15 +1,21 @@
-<!-- <% include partials/_header %> -->
-
+<% include partials/_header %>
 <html lang="en">
-  <head></head>
-  <body style="font-size:20px; padding:50px;">
+  <head>
+    <% include partials/_style %>
+  <title>TinyApp</title>
+  </head>
+  <body>
   <% if (user === undefined) {%>
     <h5>Welcome to the registration Page</h5>
-    <form action="/register" method="POST" style="margin:150px;">
-      <label for="email">email:</label>
-      <input id="email" name="email" type="email">
-      <label for="password">Password:</label>
-      <input id="password" name="password" type="password">
+    <form action="/register" method="POST">
+      <div>
+        <label for="email">email:</label>
+        <input id="email" name="email" type="email">
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input id="password" name="password" type="password">
+      </div>
       <input type="submit" value="Submit">
     </form>
   <% } else { %>

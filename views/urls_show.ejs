@@ -1,26 +1,24 @@
 <html lang="en">
   <head>
+    <% include partials/_style %>
     <title>TinyApp</title>
   </head>
   <body>
       <!-- Add your EJS code here -->
   <% include partials/_header %>
-      <h4>Running urls_show</h4>
   
-          <h3><%= urlsHolder.longURL %> -HAS BEEN SHORTENED TO- <%= urlsHolder.shortURL %></h3>
+  
+          <h3>The long Url is: <%= urlsHolder.longURL %></h3>
+          <h3>The short Url is: <%= urlsHolder.shortURL %></h3>
+  
   
           <div>Do you want to change the URL?</div>
   
-          <form method="POST" action="/urls/<%= urlsHolder.shortURL %>" style="margin:150px;">
-  
+          <form method="POST" action="/urls/<%= urlsHolder.shortURL %>?_method=PUT"">
           <label for="longURL">Enter a URL:</label>
-          <input id="longURL" type="text" name="newlongURL" placeholder="http://" style="width: 300px">
+          <input id="longURL" type="text" name="newlongURL" placeholder="http://">
           <input type="submit" value="UPDATE">
-  
           </form>
-  
           <% include partials/_footer %>
-  
   </body>
   </html>
-  

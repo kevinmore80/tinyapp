@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <% include partials/_style %>
   <title>TinyApp</title>
 </head>
 <body>
@@ -12,14 +13,17 @@
           <%console.log(flag)%>
 
     <% if (flag == 0) { %>
-      <a href="/login"><h1> Please Login to continue</h1></a>
+      <form method="get" action="/register">
+      <button type="submit">Not a user? Register!</button>
+      </form> <br>
+      <h1> Please Login</h1>
       <% } else {%>
         <% for(let key in flag) { %>
             <% if(flag[key].longURL) { %>
-              <li>Link: <%= flag[key].longURL %>
-                and Shortened Form:
-                <%= key %>
-                <form method="POST" action="/urls/<%=key%>">
+              <li>
+                <h3>Full URL is:<%= flag[key].longURL %></h3>
+                <h3>Short URL is:<%= key %></h3>
+                <form method="POST" action="/urls/<%=key%>?_method=DELETE">
                 <input type="submit" value="DELETE"></form>
                 <form method="GET" action="/urls/<%=key%>">
                   <button type="submit">EDIT</button>
@@ -29,7 +33,6 @@
         <% } %>
       <% } %>
     </ul>
-
 <% include partials/_footer %>
 </body>
 </html>
