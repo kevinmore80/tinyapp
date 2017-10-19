@@ -1,0 +1,23 @@
+<% include partials/_header %>
+<html lang="en">
+<head>
+  <title>TinyApp</title>
+</head>
+<body>
+    <!-- Add your EJS code here -->
+    <ul>
+
+        <li><%= shortURL %> -HAS BEEN SHORTENED TO- <%= urlHolder[shortURL] %>
+
+        <form action="/urls/<%= shortURL %>" method="POST" style="margin:150px;">
+        <label for="longURL">Enter a URL:</label>
+        <input id="longURL" type="text" name="longURL" placeholder="http://" style="width: 300px">
+        <input type="submit" value="update">
+        </form>
+
+      </li>
+
+    </ul>
+
+</body>
+</html>

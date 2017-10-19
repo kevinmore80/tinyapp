@@ -1,0 +1,29 @@
+<% include partials/_header %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TinyApp</title>
+</head>
+<body>
+    <!-- Add your EJS code here -->
+
+
+    <ul>
+      <% for(let prop in urlHolder) { %>
+        <li><%= urlHolder[prop] %> -SHORTENED TO- <%= prop %>
+        <form method="POST" action="/urls/<%= prop %>/delete">
+          <input type="submit" value="delete">
+          <a href = "/urls/<%= prop %>">Edit</a>
+        </form>
+        </li>
+      <% } %>
+
+    </ul>
+
+
+    <a href = "/urls/new" >
+    Link to shorten new URL
+    </a>
+
+</body>
+</html>
