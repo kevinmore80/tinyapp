@@ -1,16 +1,9 @@
-<h1> This is the start of the header partial </h1>
+<h1> Header Partial - Welcome to TinyApp </h1>
 
-  <% if(!username) { %>
-        <form action="/login" method="POST" style="margin:150px;">
-          <label for="username">Enter your username:</label>
-          <input id="username" type="text" name="username" placeholder="John123" style="width: 300px">
-          <input type="submit" value="Submit">
-        </form>
-  <% } else{ %>
-        <div>
-          The current user is: <span><%= username %></span>
-        </div>
-        <form action="/logout" method="POST" style="margin:150px;">
-        <input type="submit" value="Logout">
-        </form>
-    <% } %>
+<div>
+<a href = "/register">CLICK HERE TO REGISTER </a>
+</div>
+
+<div>
+<a href = "/login">CLICK HERE TO LOGIN </a>
+</div>
